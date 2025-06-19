@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+    <form action="">
+        <label for="fullname">Full Name</label>
+        <br>
+        <input type="text" 
+        id="fullname" 
+        name="fullname" 
+        placeholder = "Enter your full name" 
+        required 
+        minlength="2" 
+        maxlength="50" 
+        pattern="[A-Z, a-z]" 
+        title="please enter only letters and spaces">
+        <br>
+
+        <label for="email">Email</label>
+        <br>
+        <input type="text" 
+        id="email"
+        name="email"
+        required
+        placeholder="your-email@example.com"
+        autocomplete="email">
+        <br>
+
+        <label for="password">Password</label>
+        <br>
+        <input type="text" 
+        id="password"
+        name="name"
+        placeholder="Enter your password"
+        required
+        minlength="8"
+        pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}"
+        title="Passwordd must contain at least 8 characters, uppercase, lowercase, number and special character">
+        <br>
+
+        <label for="website">Website URL</label>
+        <br>
+        <input type="url"
+        id="website"
+        name="website"
+        required
+        placeholder="https://www.yourwebsite.com" 
+        pattern="https?://.+"
+        title="Enter your website URL">
+        <br>
+
+        <label for="number">Phone Number</label>
+        <br>
+        <input type="tel" 
+        id="phone"
+        name="phone"
+        required
+        placeholder="(+234) 456-578-90"
+        autocomplete="tel"
+        title="Enter your phone number">
+        <br>
+
+        <label for="Age">Age</label>
+        <br>
+        <input type="Number" 
+        id="age"
+        name="age"
+        placeholder="Enter your age"
+        required
+        min="13"
+        max="120">
+        <br>
+
+        <label for="dateofbirth">Date of Birth</label>
+        <br>
+        <input type="date"
+        id="dateofbirth"
+        name="dateofbirth"
+        required
+        max="2011-01-01"
+        min="1990-01-01">
+        <br>
+
+        <label for="satifaction">Satisfaction Level</label>
+        <br>
+        <input type="range"
+        id="satisfaction"
+        name="satisfaction"
+        min="1"
+        max="10"
+        value="5">
+        <br>
+
+        <label for="meetingMonth">Preferred Meeting Month</label>
+        <br>
+        <input type="month"
+        id="meetingMonth"
+        name="meetingMonth"
+        min="2025-07"
+        max="2025-12">
+        <br>
+
+        <label for="meetingTime">Preferred Time For Meeting</label>
+        <br>
+        <input type="time"
+        id="meetingTime"
+        name="meetingTime">
+        <br>
+
+        <label for="newsletter">Subscribe to Newsletter</label>
+        <br>
+        <input type="checkbox" 
+        name="newletter" 
+        id="newletter"
+        value="yes">
+        <br>
+
+        <label for="profilePicture">Upload Profile</label>
+        <input type="file"
+        id="profilePicture"
+        name="profilePicture"
+        accept=".png, .jpeg, jpg">
+        <br>
+
+        <button type="submit">Submit Form</button>
+    </form>
+</body>
+</html>

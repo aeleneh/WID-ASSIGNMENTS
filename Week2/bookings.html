@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Booking Form</title>
+</head>
+<body>
+  <h1>Personal Information</h1>
+  <form action="">
+    <label for="firstName">First Name</label><br>
+    <input type="text" id="firstName" name="firstName" required><br>
+
+    <label for="lastName">Last Name</label><br>
+    <input type="text" id="lastName" name="lastName" required><br>
+
+    <label for="email">Email</label><br>
+    <input type="text" id="email" name="email" required><br>
+
+    <label for="phoneNumber">Phone Number</label><br>
+    <input type="number" id="phoneNumber" name="phoneNumber" required><br>
+
+    <h2>Event Details</h2>
+
+    <label for="eventType">Event Type</label><br>
+    <select name="eventType" id="eventType" required>
+      <option value="">Select Event Type</option>
+      <option value="wedding">Wedding</option>
+      <option value="birthday">Birthday Party</option>
+      <option value="corporate">Corporate Event</option>
+      <option value="graduation">Graduation</option>
+      <option value="anniversary">Anniversary</option>
+      <option value="baby-shower">Baby Shower</option>
+      <option value="funeral">Funeral</option>
+      <option value="other">Other</option>
+    </select><br>
+
+    <label for="guestCount">Number of Guests</label><br>
+    <input type="number" id="guestCount" name="guestCount" min="1" max="1000" required><br>
+
+    <label for="eventDate">Event Date</label><br>
+    <input type="date" id="eventDate" name="eventDate" required><br>
+
+    <label for="eventTime">Event Time</label><br>
+    <input type="time" id="eventTime" name="eventTime" required><br>
+
+    <label for="venue">Venue/Location</label><br>
+    <input type="text" id="venue" name="venue" required><br>
+
+    <h2>Catering Preferences</h2>
+
+    <label for="serviceType">Service Type</label><br>
+    <select name="serviceType" id="serviceType" required>
+      <option value="">Select Service Type</option>
+      <option value="buffet">Buffet Style</option>
+      <option value="plated">Plated Service</option>
+      <option value="family">Family Style</option>
+      <option value="cocktail">Cocktail Reception</option>
+      <option value="dropoff">Drop Off Only</option>
+    </select><br>
+
+    <p>Cuisine Preferences</p>
+    <label for="nigerian">Nigerian Cuisine</label>
+    <input type="checkbox" id="nigerian" name="nigerian"><br>
+
+    <label for="continental">Continental</label>
+    <input type="checkbox" id="continental" name="continental"><br>
+
+    <label for="indian">Indian</label>
+    <input type="checkbox" id="indian" name="indian"><br>
+
+    <label for="chinese">Chinese</label>
+    <input type="checkbox" id="chinese" name="chinese"><br>
+
+    <label for="vegetarian">Vegetarian Options</label>
+    <input type="checkbox" id="vegetarian" name="vegetarian"><br>
+
+    <label for="desserts">Desserts</label>
+    <input type="checkbox" id="desserts" name="desserts"><br>
+
+    <label for="budget">Budget Range</label><br>
+    <select name="budget" id="budget" required>
+      <option value="">Select Budget Range</option>
+      <option value="under-50k">Under ₦50,000</option>
+      <option value="50k-100k">₦50,000-₦100,000</option>
+      <option value="100k-200k">₦100,000-₦200,000</option>
+      <option value="200k-500k">₦200,000-₦500,000</option>
+      <option value="above-500k">Above ₦500,000</option>
+    </select><br>
+
+    <label for="setUpTime">Preferred Setup Time</label><br>
+    <input type="time" name="setUpTime" id="setUpTime"><br>
+
+    <h2>Additional Information</h2>
+
+    <label for="specialRequests">Special Requests</label><br>
+    <textarea name="specialRequests" id="specialRequests" cols="30" rows="10"></textarea><br>
+
+    <label for="hearAbout">How did you hear about us?</label><br>
+    <select id="hearAbout" name="hearAbout">
+      <option value="">Select an option</option>
+      <option value="referral">Referral from friend/family</option>
+      <option value="social-media">Social Media</option>
+      <option value="google">Google Search</option>
+      <option value="previous-client">Previous Client</option>
+      <option value="advertisement">Advertisement</option>
+      <option value="other">Other</option>
+    </select><br><br>
+
+    <button type="submit">Submit Booking Request</button>
+  </form>
+</body>
+</html>
