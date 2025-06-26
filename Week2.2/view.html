@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Todo Manager</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>My Todo List</h1>
+
+    <!-- Filter Section -->
+    <section class="form-group">
+      <h2>Filter Todos</h2>
+
+      <div class="form-group">
+        <label for="status-filter">Status</label>
+        <select id="status-filter">
+          <option value="all">All</option>
+          <option value="pending">Pending</option>
+          <option value="completed">Completed</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="searchbar">Search by Title</label>
+        <input type="text" id="searchbar" placeholder="Search by title..." />
+      </div>
+    </section>
+
+    <!-- Task List Section -->
+    <section class="todo-list">
+      <h2>Tasks</h2>
+      <div id="todocontainer"></div>
+
+      <div style="overflow-x: auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>S/N</th>
+              <th>Title</th>
+              <th>Status</th>
+              <th>Due Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="S/N">1.</td>
+              <td data-label="Title">Pray</td>
+              <td data-label="Status">
+                <select>
+                  <option value="pending">Pending</option>
+                  <option value="completed">Completed</option>
+                </select>
+              </td>
+              <td data-label="Due Date">15/07/2025</td>
+            </tr>
+            <tr>
+              <td data-label="S/N">2.</td>
+              <td data-label="Title">House Chores</td>
+              <td data-label="Status">
+                <select>
+                  <option value="pending">Pending</option>
+                  <option value="completed">Completed</option>
+                </select>
+              </td>
+              <td data-label="Due Date">15/07/2025</td>
+            </tr>
+            <tr>
+              <td data-label="S/N">3.</td>
+              <td data-label="Title">Research for Boss</td>
+              <td data-label="Status">
+                <select>
+                  <option value="pending">Pending</option>
+                  <option value="completed">Completed</option>
+                </select>
+              </td>
+              <td data-label="Due Date">17/07/2025</td>
+            </tr>
+            <tr>
+              <td data-label="S/N">4.</td>
+              <td data-label="Title">Submit Application Form</td>
+              <td data-label="Status">
+                <select>
+                  <option value="pending">Pending</option>
+                  <option value="completed">Completed</option>
+                </select>
+              </td>
+              <td data-label="Due Date">15/07/2025</td>
+            </tr>
+            <tr>
+              <td data-label="S/N">5.</td>
+              <td data-label="Title">Groceries Shopping</td>
+              <td data-label="Status">
+                <select>
+                  <option value="pending">Pending</option>
+                  <option value="completed">Completed</option>
+                </select>
+              </td>
+              <td data-label="Due Date">15/07/2025</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <div class="form-link">
+        <a href="edit.html">Edit Todo</a>
+      </div>
+  </div>
+</body>
+</html>

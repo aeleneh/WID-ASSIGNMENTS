@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Add New Todo</h1>
+        <form id="todoForm">
+            <div class="form-group">
+                <label for="title">Title <span class="required">*</span></label>
+                <input type="text" id="title" name="title" placeholder="Enter task title..." required minlength="1"
+                    maxlength="100">
+                <div class="validation-message">Title is required and must be 1-100 characters</div>
+                </input>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description" placeholder="Enter task description (optional)..."
+                        maxlength="500"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="dueDate">Due Date</label>
+                    <input type="date" id="dueDate" name="dueDate" min="">
+                </div>
+                <div class="form-group">
+                    <label for="priority">Priority</label>
+                    <select id="priority" name="priority">
+                        <option value="">Select Priority (Optional)</option>
+                        <option value="high" class="priority-high">🔴 High</option>
+                        <option value="medium" class="priority-medium">🟡 Medium</option>
+                        <option value="low" class="priority-low">🟢 Low</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn">
+                    Save Task
+                </button>
+        </form>
+           <div class="form-footer">
+            <p>Fill in the required fields to create your todo item</p>
+           </div>
+           <div class="form-link">
+            <a href="view.html">View Todos</a>
+          </div>
+    </div>
+</body>
+</html>
+        

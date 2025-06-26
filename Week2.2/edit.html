@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Edit Todo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Edit Todo</h1>
+    <form>
+      <div class="form-group">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" value="Buy Groceries" required />
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description">Milk, eggs, bread</textarea>
+        </div>
+        <div class="form-group">
+            <label for="dueDate">Due Date</label>
+            <input type="date" id="dueDate" value="2025-06-30" />
+        </div>
+
+        <label for="priority">Priority</label>
+        <select id="priority">
+          <option value="high" selected>High</option>
+          <option value="medium">Medium</option>
+          <option value="low">Low</option>
+        </select>
+      </div>
+      <button type="submit" class="submit-btn">Update Task</button>
+    </form>
+  </div>
+</body>
+</html>
