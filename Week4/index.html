@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: { 
+              fontFamily: {
+                montserrat: ['Montserrat', 'sans-serif'],
+              },
+              colors: {
+                lightgray: '#f2f2f2',
+                dark: '#0d0d0d',
+                darkgray: '#545454'
+              }
+            }
+          }
+        }
+    </script>    
+    <title>Blog post</title>
+</head>
+<body class="font-montserrat bg-lightgray min-h-screen flex flex-col">
+    <div class="w-full max-w-[1200px] px-2 mx-auto">
+        <header class="flex flex-col items-center justify-center w-full pt-8 border-b border-darkgray pb-2 mb-10">
+            <h1 class="text-5xl font-semibold justify-center items-center text-dark tracking-wider">CLEAN & SIMPLE</h1>
+            <p class="text-sm pt-8 text-darkgray italic text-center">Your Optional Tagline is placed here</p>
+            <nav class="flex flex-wrap justify-center items-center self-start pt-8">
+                <ul class="gap-20 flex flex-row items-start justify-items-start w-full">
+                    <li><a href="#" class="text-dark text-lg font-semibold tracking-wider active:text-blue-600 active:font-bold hover:-translate-y-[2px] transition-all duration-200">Home</a></li>
+                    <li><a href="#" class="text-dark text-lg font-semibold tracking-wider active:text-blue-600 active:font-bold hover:-translate-y-[2px] transition-all duration-200">Article</a></li>
+                    <li><a href="#" class="text-dark text-lg font-semibold tracking-wider active:text-blue-600 active:font-bold hover:-translate-y-[2px] transition-all duration-200">About</a></li>
+                    <li><a href="#" class="text-dark text-lg font-semibold tracking-wider active:text-blue-600 active:font-bold hover:-translate-y-[2px] transition-all duration-200">Contact</a></li>
+                    <li><a href="#" class="text-dark text-lg font-semibold tracking-wider active:text-blue-600 active:font-bold hover:-translate-y-[2px] transition-all duration-200">Purchase</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="flex gap-8">
+            <main class="w-80%">
+                <div class="text-left text-darkgray">
+                    <p class="text-md font-light tracking-wider pb-4">July 13, 2025</p>
+                    <h2 class="text-2xl font-light pb-4">BEAUTIFUL SAMPLE POST</h2>
+                    <p class="text-sm font-medium pb-8">Thanking for looking at this amazing template for your blogger. 
+                        You can immediately change the look and the feel of your website by simply uploading this theme with a single mouse click. 
+                        Custom shatre links under this post. Easily change color and fonts using the in-built designer.
+                    </p>
+            </div>
+            <div class="w-[80%] min-h-screen">
+                <img src="./ronaldo-rizzutti-TkVfAtp6VfU-unsplash.jpg" alt="A living room">
+            </div>  
+            </main>
+            <aside class="w-">
+                <h2>WELCOME</h2>
+                <img src="./beautiful-caucasian-girl-gray-background.jpg" alt="A black and white of portrait a woman">
+                <p>Welcome to clean and simple beautiful blogger template. 
+                    You can easily insert your welcome text here as well as show your personal photo to your audience.
+                </p>
+                <img src="./social media icons/face.png" alt="Facebook icon">
+                <img src="./social media icons/twit.png" alt="Twitter icon">
+                <img src="./social media icons/email.png" alt="Email icon">
+                <img src="./social media icons/pin.png" alt="Pinterest icon">
+                <img src="./social media icons/inst.png" alt="Instagram icon">
+                <p>Blog Archive</p>
+                <p>&copy; All Copyright Reserved to Clean & Simple 2025.</p>
+            </aside>
+        </div>
+  </div>
+</body>
+</html>

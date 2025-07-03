@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes slideUp {
+      0% { transform: translateY(20px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+    .animate-slideUp { animation: slideUp 0.6s ease-out; }
+  </style>
+  <title>Edit Todo</title>
+</head>
+<body class="font-sans bg-[#1e90ff] min-h-screen flex items-center justify-center p-5">
+  <div class="bg-[#f2f2f2] backdrop-blur-md rounded-xl p-10 shadow-[0_20px_40px_rgba(0,0,0,0.1)] w-full max-w-[500px] animate-slideUp mt-4">
+    <h1 class="text-center text-[#1e90ff] mb-[30px] text-3xl sm:text-4xl lg:text-5xl font-light">Edit Todo</h1>
+    <form>
+      <div class="mb-[25px]">
+        <label for="title" class="block mb-[25px] text-[#555] font-medium text-[0.95rem]">Title</label>
+        <input 
+          type="text" 
+          id="title" 
+          name="title" 
+          value="Buy Groceries" 
+          required 
+          class="w-full p-4 border-2 border-[#e1e8ed] rounded-xl text-base transition-all duration-300 ease-in-out bg-[#fafbfc] outline-none
+                 focus:border-[#667eea] focus:bg-white focus:shadow-[0_0_0_3px_rgba(102,126,234,0.1)] focus:-translate-y-[2px]
+                 invalid:border-[#e74c3c] invalid:bg-[#fdf2f2] 
+                 valid:border-[#27ae60] valid:bg-[#f8fff8]
+                 required:border-red-500 required:bg-red-50"
+        />
+      </div>
+
+      <div class="mb-[25px]">
+        <label for="description" class="block mb-[25px] text-[#555] font-medium text-[0.95rem]">Description</label>
+        <textarea 
+          id="description" 
+          rows="4"
+          class="w-full p-4 border-2 border-[#e1e8ed] rounded-xl text-base transition-all duration-300 ease-in-out bg-[#fafbfc] outline-none
+                 focus:border-[#667eea] focus:bg-white focus:shadow-[0_0_0_3px_rgba(102,126,234,0.1)] focus:-translate-y-[2px] resize-vertical"
+        >Milk, eggs, bread</textarea>
+      </div>
+
+      <div class="mb-[25px]">
+        <label for="dueDate" class="block mb-[25px] text-[#555] font-medium text-[0.95rem]">Due Date</label>
+        <input 
+          type="date" 
+          id="dueDate" 
+          value="2025-06-30" 
+          class="w-full p-4 border-2 border-[#e1e8ed] rounded-xl text-base transition-all duration-300 ease-in-out bg-[#fafbfc] outline-none
+                 focus:border-[#667eea] focus:bg-white focus:shadow-[0_0_0_3px_rgba(102,126,234,0.1)] focus:-translate-y-[2px]
+                 invalid:border-[#e74c3c] invalid:bg-[#fdf2f2] 
+                 valid:border-[#27ae60] valid:bg-[#f8fff8]"
+        />
+      </div>
+
+      <div class="mb-[25px]">
+        <label for="priority" class="block mb-[25px] text-[#555] font-medium text-[0.95rem]">Priority</label>
+        <select 
+          id="priority" 
+          class="w-full p-4 border-2 border-[#e1e8ed] rounded-xl text-base transition-all duration-300 ease-in-out bg-[#fafbfc] outline-none
+                 focus:border-[#667eea] focus:bg-white focus:shadow-[0_0_0_3px_rgba(102,126,234,0.1)] focus:-translate-y-[2px]
+                 cursor-pointer appearance-none
+                 bg-[url('data:image/svg+xml,%3csvg xmlns=\'http://www.w3.org/2000/svg\' 
+                 fill=\'none\' viewBox=\'0 0 20 20\'%3e%3cpath stroke=\'%236b7280\' stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'1.5\' d=\'M6 8l4 4 4-4\'/%3e%3c/svg%3e')]
+                 bg-no-repeat bg-[length:16px] bg-[position:right_12px_center] pr-10"
+        >
+          <option value="high" selected>High</option>
+          <option value="medium">Medium</option>
+          <option value="low">Low</option>
+        </select>
+      </div>
+
+      <button 
+        type="submit" 
+        class="w-full bg-[#2E7167] text-[#f2f2f2] border-none p-5 mb-4 rounded-xl text-lg font-semibold cursor-pointer 
+               transition-all duration-300 ease uppercase tracking-[1px] relative overflow-hidden
+               hover:-translate-y-[2px] hover:shadow-[0_10px_25px_rgba(46,113,103,0.3)] 
+               active:translate-y-0 
+               disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none"
+      >
+        Update Task
+      </button>
+    </form>
+  </div>
+</body>
+</html>

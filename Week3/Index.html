@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo Manager</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dodger-blue': '#1e90ff',
+                        'custom-green': '#2E7167',
+                        'priority-high': '#e74c3c',
+                        'priority-medium': '#f39c12',
+                        'priority-low': '#27ae60'
+                    },
+                    animation: {
+                        'slide-up': 'slideUp 0.6s ease-out'
+                    },
+                    keyframes: {
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .priority-high {
+            color: #e74c3c;
+        }
+
+
+        .priority-medium {
+            color: #f39c12;
+        }
+
+
+        .priority-low {
+            color: #27ae60;
+        }
+
+
+        /* Custom select arrow */
+        .custom-select {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 12px center;
+            background-repeat: no-repeat;
+            background-size: 16px;
+        }
+    </style>
+</head>
+
+
+<body class="font-segoe bg-dodger-blue min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8">
+    <div
+    class="bg-white/95 backdrop-blur-lg rounded-2xl p-6 sm:p-8 lg:p-10 shadow-2xl w-full max-w-md sm:max-w-lg animate-slide-up">
+    <h1 class="text-center text-dodger-blue text-3xl sm:text-4xl lg:text-5xl font-light mb-6 sm:mb-8">
+        Add New Todo
+    </h1>
+
+
+    <form id="todoForm" class="space-y-5 sm:space-y-6">
+        <div class="form-group relative">
+            <label for="title" class="block mb-2 text-gray-600 font-medium text-sm sm:text-base">
+                Title <span class="text-red-500">*</span>
+            </label>
+            <input type="text" id="title" name="title" placeholder="Enter task title..." required minlength="1"
+                maxlength="100" class="w-full p-3 sm:p-4 border-2 border-gray-200 rounded-xl text-sm sm:text-base
+                       transition-all duration-300 bg-gray-50 outline-none
+                       focus:border-blue-500 focus:bg-white focus:shadow-lg focus:-translate-y-0.5
+                       invalid:border-red-500 invalid:bg-red-50
+                       valid:border-green-500 valid:bg-green-50">
+            <div class="text-red-500 text-xs sm:text-sm mt-1 opacity-0 transition-opacity duration-300
+                       peer-invalid:opacity-100">
+                Title is required and must be 1-100 characters
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="description" class="block mb-2 text-gray-600 font-medium text-sm sm:text-base">
+                Description
+            </label>
+            <textarea id="description" name="description" placeholder="Enter task description (optional)..."
+                maxlength="500" rows="4" class="w-full p-3 sm:p-4 border-2 border-gray-200 rounded-xl text-sm sm:text-base
+                       transition-all duration-300 bg-gray-50 outline-none resize-y min-h-[100px]
+                       focus:border-blue-500 focus:bg-white focus:shadow-lg focus:-translate-y-0.5"></textarea>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="dueDate" class="block mb-2 text-gray-600 font-medium text-sm sm:text-base">
+                            Due Date
+                        </label>
+                        <input type="date" id="dueDate" name="dueDate" class="w-full p-3 sm:p-4 border-2 border-gray-200 rounded-xl text-sm sm:text-base
+                                   transition-all duration-300 bg-gray-50 outline-none
+                                   focus:border-blue-500 focus:bg-white focus:shadow-lg focus:-translate-y-0.5">
+                    </div>
+        
+        
+                    <div class="form-group">
+                        <label for="priority" class="block mb-2 text-gray-600 font-medium text-sm sm:text-base">
+                            Priority
+                        </label>
+                        <select id="priority" name="priority" class="w-full p-3 sm:p-4 border-2 border-gray-200 rounded-xl text-sm sm:text-base
+                                   transition-all duration-300 bg-gray-50 outline-none cursor-pointer
+                                   focus:border-blue-500 focus:bg-white focus:shadow-lg focus:-translate-y-0.5
+                                   custom-select appearance-none">
+                            <option value="">Select Priority (Optional)</option>
+                            <option value="high" class="priority-high">🔴 High</option>
+                            <option value="medium" class="priority-medium">🟡 Medium</option>
+                            <option value="low" class="priority-low">🟢 Low</option>
+                        </select>
+                    </div>
+        
+        
+                    <button type="submit" class="w-full bg-custom-green text-white border-none p-4 sm:p-5 rounded-xl
+                               text-base sm:text-lg font-semibold cursor-pointer transition-all duration-300
+                               uppercase tracking-wider relative overflow-hidden
+                               hover:-translate-y-0.5 hover:shadow-xl hover:shadow-custom-green/30
+                               active:translate-y-0 disabled:opacity-60 disabled:cursor-not-allowed
+                               disabled:transform-none">
+                        Save Task
+                    </button>
+                </form>
+                <div class="text-center mt-6 sm:mt-8 text-gray-500 text-xs sm:text-sm">
+                    <p> Fill in the required fields to create your todo item</p>
+                </div>
+                <div class="text-center text-blue-600 mt-4 font-bold hover:underline hover:text-blue-700">
+                    <a href="view.html">View Todos</a>
+                  </div>
+            </div>
+        </body>
+        
+        
+        </html>
+        
+                

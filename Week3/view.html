@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style>
+    @keyframes slideUp {
+      0% { transform: translateY(20px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+    .animate-slideUp { animation: slideUp 0.6s ease-out; }
+    
+    /* Custom responsive table styles */
+    @media (max-width: 768px) {
+      .responsive-table thead {
+        display: none;
+      }
+      .responsive-table tbody tr {
+        display: block;
+        margin-bottom: 1rem;
+        background: white;
+        border-radius: 0.75rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      }
+      .responsive-table tbody td {
+        display: block;
+        text-align: right;
+        padding: 0.75rem 1rem;
+        border: none;
+        position: relative;
+        padding-left: 50%;
+      }
+      .responsive-table tbody td:before {
+        content: attr(data-label) ": ";
+        position: absolute;
+        left: 1rem;
+        width: 45%;
+        text-align: left;
+        font-weight: 600;
+        color: #374151;
+      }
+    }
+  </style>
+  <title>Todo Manager</title>
+</head>
+<body class="font-sans bg-[#1e90ff] min-h-screen p-5">
+  <div class="max-w-6xl mx-auto">
+    <div class="bg-[#f2f2f2] backdrop-blur-md rounded-xl p-6 sm:p-10 shadow-[0_20px_40px_rgba(0,0,0,0.1)] animate-slideUp mb-8">
+      <h1 class="text-center text-[#1e90ff] mb-8 text-3xl sm:text-4xl lg:text-5xl font-light">My Todo List</h1>
+
+      <!-- Filter Section -->
+      <section class="mb-8">
+        <h2 class="text-2xl font-light text-[#555] mb-6">Filter Todos</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label for="status-filter" class="block mb-3 text-[#555] font-medium text-[0.95rem]">Status</label>
+            <select 
+              id="status-filter"
+              class="w-full p-4 border-2 border-[#e1e8ed] rounded-xl text-base transition-all duration-300 ease-in-out bg-[#fafbfc] outline-none
+                     focus:border-[#667eea] focus:bg-white focus:shadow-[0_0_0_3px_rgba(102,126,234,0.1)] focus:-translate-y-[2px]
+                     cursor-pointer appearance-none
+                     bg-[url('data:image/svg+xml,%3csvg xmlns=\'http://www.w3.org/2000/svg\' 
+                     fill=\'none\' viewBox=\'0 0 20 20\'%3e%3cpath stroke=\'%236b7280\' stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'1.5\' d=\'M6 8l4 4 4-4\'/%3e%3c/svg%3e')]
+                     bg-no-repeat bg-[length:16px] bg-[position:right_12px_center] pr-10"
+            >
+              <option value="all">All</option>
+              <option value="pending">Pending</option>
+              <option value="completed">Completed</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="searchbar" class="block mb-3 text-[#555] font-medium text-[0.95rem]">Search by Title</label>
+            <input 
+              type="text" 
+              id="searchbar" 
+              placeholder="Search by title..." 
+              class="w-full p-4 border-2 border-[#e1e8ed] rounded-xl text-base transition-all duration-300 ease-in-out bg-[#fafbfc] outline-none
+                     focus:border-[#667eea] focus:bg-white focus:shadow-[0_0_0_3px_rgba(102,126,234,0.1)] focus:-translate-y-[2px]
+                     placeholder:text-[#999]"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Task List Section -->
+      <section>
+        <h2 class="text-2xl font-light text-[#555] mb-6">Tasks</h2>
+        <div id="todocontainer" class="mb-6"></div>
+
+        <div class="overflow-x-auto rounded-xl border-2 border-[#e1e8ed] bg-white">
+          <table class="w-full responsive-table">
+            <thead class="bg-[#f8f9fa] border-b border-[#e1e8ed]">
+              <tr>
+                <th class="text-left p-4 text-[#555] font-semibold text-sm uppercase tracking-wider">S/N</th>
+                <th class="text-left p-4 text-[#555] font-semibold text-sm uppercase tracking-wider">Title</th>
+                <th class="text-left p-4 text-[#555] font-semibold text-sm uppercase tracking-wider">Status</th>
+                <th class="text-left p-4 text-[#555] font-semibold text-sm uppercase tracking-wider">Due Date</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[#e1e8ed]">
+              <tr class="transition-colors hover:bg-[#f8f9fa]">
+                <td data-label="S/N" class="p-4 text-[#555] font-medium">1.</td>
+                <td data-label="Title" class="p-4 text-[#333] font-medium">Pray</td>
+                <td data-label="Status" class="p-4">
+                  <select class="px-3 py-2 border-2 border-[#e1e8ed] rounded-lg text-sm transition-all duration-300 ease-in-out bg-[#fafbfc] outline-none
+                               focus:border-[#667eea] focus:bg-white focus:shadow-[0_0_0_3px_rgba(102,126,234,0.1)]
+                               cursor-pointer appearance-none
+                               bg-[url('data:image/svg+xml,%3csvg xmlns=\'http://www.w3.org/2000/svg\' 
+                               fill=\'none\' viewBox=\'0 0 20 20\'%3e%3cpath stroke=\'%236b7280\' stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'1.5\' d=\'M6 8l4 4 4-4\'/%3e%3c/svg%3e')]
+                               bg-no-repeat bg-[length:12px] bg-[position:right_8px_center] pr-8">
+                    <option value="pending">Pending</option>
+                    <option value="completed">Completed</option>
+                  </select>
+                </td>
+                <td data-label="Due Date" class="p-4 text-[#555]">15/07/2025</td>
+              </tr>
+              <tr class="transition-colors hover:bg-[#f8f9fa]">
+                <td data-label="S/N" class="p-4 text-[#555] font-medium">2.</td>
+                <td data-label="Title" class="p-4 text-[#333] font-medium">House Chores</td>
+                <td data-label="Status" class="p-4">
+                  <select class="px-3 py-2 border-2 border-[#e1e8ed] rounded-lg text-sm transition-all duration-300 ease-in-out bg-[#fafbfc] outline-none
+                               focus:border-[#667eea] focus:bg-white focus:shadow-[0_0_0_3px_rgba(102,126,234,0.1)]
+                               cursor-pointer appearance-none
+                               bg-[url('data:image/svg+xml,%3csvg xmlns=\'http://www.w3.org/2000/svg\' 
+                               fill=\'none\' viewBox=\'0 0 20 20\'%3e%3cpath stroke=\'%236b7280\' stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'1.5\' d=\'M6 8l4 4 4-4\'/%3e%3c/svg%3e')]
+                               bg-no-repeat bg-[length:12px] bg-[position:right_8px_center] pr-8">
+                    <option value="pending">Pending</option>
+                    <option value="completed">Completed</option>
+                  </select>
+                </td>
+                <td data-label="Due Date" class="p-4 text-[#555]">15/07/2025</td>
+              </tr>
+              <tr class="transition-colors hover:bg-[#f8f9fa]">
+                <td data-label="S/N" class="p-4 text-[#555] font-medium">3.</td>
+                <td data-label="Title" class="p-4 text-[#333] font-medium">Research for Boss</td>
+                <td data-label="Status" class="p-4">
+                  <select class="px-3 py-2 border-2 border-[#e1e8ed] rounded-lg text-sm transition-all duration-300 ease-in-out bg-[#fafbfc] outline-none
+                               focus:border-[#667eea] focus:bg-white focus:shadow-[0_0_0_3px_rgba(102,126,234,0.1)]
+                               cursor-pointer appearance-none
+                               bg-[url('data:image/svg+xml,%3csvg xmlns=\'http://www.w3.org/2000/svg\' 
+                               fill=\'none\' viewBox=\'0 0 20 20\'%3e%3cpath stroke=\'%236b7280\' stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'1.5\' d=\'M6 8l4 4 4-4\'/%3e%3c/svg%3e')]
+                               bg-no-repeat bg-[length:12px] bg-[position:right_8px_center] pr-8">
+                    <option value="pending">Pending</option>
+                    <option value="completed">Completed</option>
+                  </select>
+                </td>
+                <td data-label="Due Date" class="p-4 text-[#555]">17/07/2025</td>
+              </tr>
+              <tr class="transition-colors hover:bg-[#f8f9fa]">
+                <td data-label="S/N" class="p-4 text-[#555] font-medium">4.</td>
+                <td data-label="Title" class="p-4 text-[#333] font-medium">Submit Application Form</td>
+                <td data-label="Status" class="p-4">
+                  <select class="px-3 py-2 border-2 border-[#e1e8ed] rounded-lg text-sm transition-all duration-300 ease-in-out bg-[#fafbfc] outline-none
+                               focus:border-[#667eea] focus:bg-white focus:shadow-[0_0_0_3px_rgba(102,126,234,0.1)]
+                               cursor-pointer appearance-none
+                               bg-[url('data:image/svg+xml,%3csvg xmlns=\'http://www.w3.org/2000/svg\' 
+                               fill=\'none\' viewBox=\'0 0 20 20\'%3e%3cpath stroke=\'%236b7280\' stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'1.5\' d=\'M6 8l4 4 4-4\'/%3e%3c/svg%3e')]
+                               bg-no-repeat bg-[length:12px] bg-[position:right_8px_center] pr-8">
+                    <option value="pending">Pending</option>
+                    <option value="completed">Completed</option>
+                  </select>
+                </td>
+                <td data-label="Due Date" class="p-4 text-[#555]">15/07/2025</td>
+              </tr>
+              <tr class="transition-colors hover:bg-[#f8f9fa]">
+                <td data-label="S/N" class="p-4 text-[#555] font-medium">5.</td>
+                <td data-label="Title" class="p-4 text-[#333] font-medium">Groceries Shopping</td>
+                <td data-label="Status" class="p-4">
+                  <select class="px-3 py-2 border-2 border-[#e1e8ed] rounded-lg text-sm transition-all duration-300 ease-in-out bg-[#fafbfc] outline-none
+                               focus:border-[#667eea] focus:bg-white focus:shadow-[0_0_0_3px_rgba(102,126,234,0.1)]
+                               cursor-pointer appearance-none
+                               bg-[url('data:image/svg+xml,%3csvg xmlns=\'http://www.w3.org/2000/svg\' 
+                               fill=\'none\' viewBox=\'0 0 20 20\'%3e%3cpath stroke=\'%236b7280\' stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'1.5\' d=\'M6 8l4 4 4-4\'/%3e%3c/svg%3e')]
+                               bg-no-repeat bg-[length:12px] bg-[position:right_8px_center] pr-8">
+                    <option value="pending">Pending</option>
+                    <option value="completed">Completed</option>
+                  </select>
+                </td>
+                <td data-label="Due Date" class="p-4 text-[#555]">15/07/2025</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <div class="text-center mt-8">
+        <a 
+          href="edit.html" 
+          class="inline-block bg-[#2E7167] text-[#f2f2f2] px-8 py-4 rounded-xl text-lg font-semibold cursor-pointer 
+                 transition-all duration-300 ease uppercase tracking-[1px] no-underline
+                 hover:-translate-y-[2px] hover:shadow-[0_10px_25px_rgba(46,113,103,0.3)] 
+                 active:translate-y-0"
+        >
+          Edit Todo
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
