@@ -22,10 +22,10 @@ jobs:
 
       - name: Debug & Copy Week4 to public folder
         run: |
-          echo "Listing contents of assignment/Week4:"
-          ls -l assignment/Week4
+          echo "Listing contents of Assignment/Week4:"
+          ls -l Assignment/Week4
           mkdir public
-          cp -r assignment/Week4/* public/
+          cp -r Assignment/Week4/* public/
           echo "Listing contents of public:"
           ls -l public
 
