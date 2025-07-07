@@ -23,7 +23,7 @@ jobs:
       - name: Copy Week4 to public folder
         run: |
           mkdir public
-          cp -r Week4/* public/
+         cp -r Assignment/Week4/* public/
 
       - name: Upload pages artifact
         uses: actions/upload-pages-artifact@v3
